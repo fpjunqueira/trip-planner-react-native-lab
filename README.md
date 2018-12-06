@@ -2,6 +2,7 @@
 
 React Native Hands On
 
+https://www.devpleno.com/reactnative/
 
 ## Ubuntu Linux Setup
 
