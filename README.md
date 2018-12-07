@@ -4,6 +4,7 @@ React Native Hands On
 
 https://www.devpleno.com/reactnative/
 
+
 ## Ubuntu Linux Setup
 
 Dependencies:
@@ -21,6 +22,7 @@ By default, Android Studio will install the last version of SDK.
 ## Install React Native Cli
 
 `$ npm install -g react-native-cli`
+
 
 ## Fix npm error
 
@@ -67,6 +69,12 @@ To run your app on Android:
 
 * /dev/kvm permission denied.
 
+Avoid de erro:
+
+emulator: ERROR: x86 emulation currently requires hardware acceleration!
+Please ensure KVM is properly installed and usable.
+CPU acceleration status: This user doesn't have permissions to use KVM (/dev/kvm)
+
 `$ sudo su`
 `$ cd /`
 `$ cd dev`
@@ -74,11 +82,11 @@ To run your app on Android:
 
 **List AVDs** 
 
-`$ANDROID_HOME/emulator/emulator -list-avds`
+`$ $ANDROID_HOME/emulator/emulator -list-avds`
 
 **Loading an AVD**
 
-`$ANDROID_HOME/emulator/emulator -avd Nexus_5X_API_28_x86`
+`$ $ANDROID_HOME/emulator/emulator -avd Nexus_5X_API_28_x86`
 
 
 ## Run Project 
@@ -114,3 +122,4 @@ Figma
 ## VSS Code Plugins
 
 Babel ES6/Es7 (dzannotti.vscode-babel-coloring)
+
