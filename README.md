@@ -7,33 +7,90 @@ https://www.devpleno.com/reactnative/
 
 ## Ubuntu Linux Setup
 
-Dependencies:
+**Dependencies:**
 
 * React Native
 * Python2
 * JDK
 * Android Studio (https://developer.android.com/studio/)
 
+
+**Config Android SDK On Ubuntu**
+
+* Download and run Android Studio, it'll do the initial configs of Android SDK
+
+`$ ~/android-studio/bin/studio.sh
+`
+
 OBS: _Needs Android SDK Platform 27 - verstion 8.1 (Oreo)_ 
 
 By default, Android Studio will install the last version of SDK. 
 
 
+* Export SDK Variables ~/.bashrc
+
+```
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+```
+
+* Grant current user access to /dev/kvm
+
+`$ sudo su
+`
+
+`$ cd /
+`
+
+`$ cd dev
+`
+
+`$ chmod 777 -R kvm
+` 
+
+
+* List AVDs 
+
+`$ $ANDROID_HOME/emulator/emulator -list-avds`
+
+* Loading an AVD
+
+`$ $ANDROID_HOME/emulator/emulator -avd Nexus_5X_API_28_x86`
+
+
+**Some errors was fixed with the following:**
+
+* Unable to load script from assets 'index.android.bundle'...
+
+`$ sudo sysctl -w fs.inotify.max_user_instances=1024
+`
+
+`$ sudo sysctl -w fs.inotify.max_user_watches=12288
+`
+
+
 ## Install React Native Cli
 
-`$ npm install -g react-native-cli`
+`$ npm install -g react-native-cli
+`
 
+`$ react-native -V
+`
 
-## Fix npm error
+* Fix npm error
 
 In case of the following error:
 
 _react-native-cli: command not found_
 
-` $ npm config set prefix '~/.npm-global' && export PATH=~/.npm-global/bin:$PATH && source ~/.profile` 
+` $ npm config set prefix '~/.npm-global' && export PATH=~/.npm-global/bin:$PATH && source ~/.profile
+` 
 
 
-## Initializing project
+## Init project
 
 This project was generated with the fallowing command
 
@@ -54,56 +111,7 @@ To run your app on Android:
    react-native run-android
 ```
 
-
-## Configu SDK On Ubuntu
-
-**Export SDK Variables ~/.bashrc**
-
-```
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-```
-
-**Grant current user access to /dev/kvm**
-
-* /dev/kvm permission denied.
-
-Avoid de erro:
-
-emulator: ERROR: x86 emulation currently requires hardware acceleration!
-Please ensure KVM is properly installed and usable.
-CPU acceleration status: This user doesn't have permissions to use KVM (/dev/kvm)
-
-`$ sudo su`
-`$ cd /`
-`$ cd dev`
-`$ chmod 777 -R kvm` 
-
-**List AVDs** 
-
-`$ $ANDROID_HOME/emulator/emulator -list-avds`
-
-**Loading an AVD**
-
-`$ $ANDROID_HOME/emulator/emulator -avd Nexus_5X_API_28_x86`
-
-
-## Run Project 
-
-`$ react-native run-android`
-
-
-## Run on Ubuntu
-
-**Some errors was fixed with the following:**
-
-* Unable to load script from assets 'index.android.bundle'...
-
-`$ sudo sysctl -w fs.inotify.max_user_instances=1024`
-`$ sudo sysctl -w fs.inotify.max_user_watches=12288`
+## Config Run Script
 
 https://medium.com/@adityasingh_32512/solved-unable-to-load-script-from-assets-index-android-bundle-bdc5e3a3d5ff
 
@@ -117,7 +125,7 @@ Step 2:
 Step 3 :
 `$ react-native run-android`
 
-Creat a script into package.json to automate this process:
+Create script into package.json to automate this process:
 
 ```
   ...
@@ -127,7 +135,15 @@ Creat a script into package.json to automate this process:
   ...
 ```
 
-## Run
+
+## Run Project on Ubuntu
+
+`$ npm run ubuntu`
+
+
+## VSS Code Plugins
+
+Babel ES6/Es7 (dzannotti.vscode-babel-coloring)
 
 
 ## Tools
@@ -135,7 +151,4 @@ Creat a script into package.json to automate this process:
 Figma
 
 
-## VSS Code Plugins
-
-Babel ES6/Es7 (dzannotti.vscode-babel-coloring)
 
