@@ -57,13 +57,15 @@ To run your app on Android:
 
 ## Configu SDK On Ubuntu
 
-**Export SDK Variables**
+**Export SDK Variables ~/.bashrc**
 
-`$ export ANDROID_HOME=$HOME/Android/Sdk`
-`$ export PATH=$PATH:$ANDROID_HOME/emulator`
-`$ export PATH=$PATH:$ANDROID_HOME/tools`
-`$ export PATH=$PATH:$ANDROID_HOME/tools/bin`
-`$ export PATH=$PATH:$ANDROID_HOME/platform-tools`
+```
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+```
 
 **Grant current user access to /dev/kvm**
 
@@ -94,6 +96,8 @@ CPU acceleration status: This user doesn't have permissions to use KVM (/dev/kvm
 `$ react-native run-android`
 
 
+## Run on Ubuntu
+
 **Some errors was fixed with the following:**
 
 * Unable to load script from assets 'index.android.bundle'...
@@ -112,6 +116,18 @@ Step 2:
 
 Step 3 :
 `$ react-native run-android`
+
+Creat a script into package.json to automate this process:
+
+```
+  ...
+  "scripts": {
+        "ubuntu" : "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && react-native run-android"
+  },
+  ...
+```
+
+## Run
 
 
 ## Tools
