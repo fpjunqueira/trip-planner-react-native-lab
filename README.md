@@ -17,7 +17,7 @@ https://www.devpleno.com/reactnative/
 
 **Config Android SDK On Ubuntu**
 
-* Download and run Android Studio, it'll do the initial configs of Android SDK
+* Download and run Android Studio, this will start the initial settings of Android SDK
 
 https://developer.android.com/studio/
 
