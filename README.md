@@ -12,12 +12,14 @@ https://www.devpleno.com/reactnative/
 * React Native
 * Python2
 * JDK
-* Android Studio (https://developer.android.com/studio/)
+* Android SDK
 
 
 **Config Android SDK On Ubuntu**
 
 * Download and run Android Studio, it'll do the initial configs of Android SDK
+
+https://developer.android.com/studio/
 
 `$ ~/android-studio/bin/studio.sh
 `
