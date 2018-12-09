@@ -63,14 +63,17 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 `$ $ANDROID_HOME/emulator/emulator -avd Nexus_5X_API_28_x86`
 
 
-**Some errors was fixed with the following:**
+**Fixing ENOSPC error:**
 
-* Unable to load script from assets 'index.android.bundle'...
+* Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fjunqueira/projects/devpleno/TripPlannerReactNativeLab/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/views/webview'
+
+https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers#the-technical-details
+
 
 `$ sudo sysctl -w fs.inotify.max_user_instances=1024
 `
 
-`$ sudo sysctl -w fs.inotify.max_user_watches=12288
+`$ sudo sysctl -w fs.inotify.max_user_watches=524288
 `
 
 
@@ -81,6 +84,18 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 `$ react-native -V
 `
+
+**Native Modules**
+
+`$ npm install react-navigation
+`
+
+`$ npm install react-native-gesture-handler
+`
+
+`$ react-native link
+`
+
 
 * Fix npm error
 
@@ -140,8 +155,8 @@ Create script into package.json to automate this process:
 
 ## Run Project on Ubuntu
 
-`$ npm run ubuntu`
-
+`$ npm run ubuntu
+`
 
 ## VSS Code Plugins
 

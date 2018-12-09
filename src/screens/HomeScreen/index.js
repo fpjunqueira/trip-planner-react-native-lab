@@ -4,12 +4,15 @@ import assets from './assets'
 import styles from './styles'
 
 class HomeScreen extends Component {
+    static navigationOptions = {
+        header: null
+    }
     state = {
-        counter: 0,
+        show:  true,
     }
     handleCouter = () => {
         this.setState({
-            counter: this.state.counter + 1
+            show: !this.state.show 
         })
     }
     render() {
@@ -22,14 +25,28 @@ class HomeScreen extends Component {
                 <View style={styles.wrapperLogoTripPlanner}>
                     <Image source={assets.tripplanner}/>
                 </View>
+
                 <View style={styles.wrapperLogoPexper}>
                     <Image source={assets.pexperLogo}/>
                 </View>
-                <TouchableWithoutFeedback onPress={this.handleCouter}>
-                    <View style={styles.buttonBackGround}>
-                        <Text style={styles.buttonText}>START {this.state.counter}</Text>
-                    </View>
-                </TouchableWithoutFeedback>
+
+                {
+                    !this.state.show ? 
+                        <TouchableWithoutFeedback onPress={this.handleCouter}>
+                            <View style={styles.buttonBackGround}>
+                                <Text style={styles.buttonText}>START!</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                    : 
+                    <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Trips')}>
+                        <View style={styles.buttonEmptyStateBackGround}>
+                            <Image source={assets.pin} style={styles.pin}/>
+                            <Text style={styles.buttonEmptyStateText}>Let's planning your first trip?</Text>
+                            <Image source={assets.arrowNext} style={styles.arrow}/>
+                        </View>
+                    </TouchableWithoutFeedback>
+                }
+
             </ImageBackground>            
         )
     }
