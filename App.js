@@ -1,13 +1,6 @@
-import React from 'react'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
-import HomeScreen from './src/screens/HomeScreen/index'
-import { Text } from 'react-native' 
-
-const TripsScreen = props => {
-  return(
-    <Text style={{paddingTop: 200}}>Text</Text>
-  )
-}
+import HomeScreen from './src/screens/HomeScreen'
+import TripsScreen from './src/screens/TripsScreen'
 
 const AppNavigator = createStackNavigator({
   Home: HomeScreen,

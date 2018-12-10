@@ -158,6 +158,15 @@ Create script into package.json to automate this process:
 `$ npm run ubuntu
 `
 
+## Debug
+
+`$ adb reverse tcp:8081 tcp:8081
+`
+
+http://localhost:8081/debugger-ui/
+
+
+
 ## VSS Code Plugins
 
 Babel ES6/Es7 (dzannotti.vscode-babel-coloring)
