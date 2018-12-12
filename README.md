@@ -41,17 +41,8 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 * Grant current user access to /dev/kvm
 
-`$ sudo su
+`$ sudo chmod 777 -R /dev/kvm
 `
-
-`$ cd /
-`
-
-`$ cd dev
-`
-
-`$ chmod 777 -R kvm
-` 
 
 
 * List AVDs 

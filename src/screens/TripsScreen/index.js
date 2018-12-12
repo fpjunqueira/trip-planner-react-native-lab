@@ -8,7 +8,7 @@ class TripsScreen extends Component {
     }
     renderItem = item => {
         console.log(item)
-        return <Trip title={item.item.name} price={item.item.price}/>
+        return <Trip onPress={ () => this.props.navigation.navigate('Trip') } title={item.item.name} price={item.item.price}/>
     }
     render() {
         const trips = [
