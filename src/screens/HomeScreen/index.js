@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, ImageBackground, Image, TouchableWithoutFeedback } from 'react-native'
 import assets from './assets'
 import styles from './styles'
+import IsIphoneX from '../../utils/IsIphoneX'
 
 class HomeScreen extends Component {
     static navigationOptions = {
@@ -33,7 +34,7 @@ class HomeScreen extends Component {
                 {
                     !this.state.show ? 
                         <TouchableWithoutFeedback onPress={this.handleCouter}>
-                            <View style={styles.buttonBackGround}>
+                            <View style={[styles.buttonBackGround, isIphoneX() ? { paddingBottom: 32 } : null]}>
                                 <Text style={styles.buttonText}>START!</Text>
                             </View>
                         </TouchableWithoutFeedback>
@@ -42,7 +43,7 @@ class HomeScreen extends Component {
                         <View style={styles.buttonEmptyStateBackGround}>
                             <Image source={assets.pin} style={styles.pin}/>
                             <Text style={styles.buttonEmptyStateText}>Let's planning your first trip?</Text>
-                            <Image source={assets.arrowNext} style={styles.arrow}/>
+                            <Image source={assets.arrowNext} style={[styles.arrow, isIphoneX() ? { marginBottom: 16 } : null ]}/>
                         </View>
                     </TouchableWithoutFeedback>
                 }

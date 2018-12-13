@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, FlatList } from 'react-native'
 import Trip from './Trip'
+import IsIphoneX from '../../utils/IsIphoneX'
 
 class TripsScreen extends Component {
     static navigationOptions = {
@@ -30,7 +31,7 @@ class TripsScreen extends Component {
                     <Text>Map</Text>
                 </View>
                 <View style={{
-                    backgroundColor: 'pink'
+                    backgroundColor: 'white'
                 }}>
                     <FlatList
                         data= {trips}
@@ -38,6 +39,9 @@ class TripsScreen extends Component {
                         horizontal
                         pagingEnabled
                         keyExtractor={ item => item.id }
+                        style={[
+                            isIphoneX() ? { marginBottom: 20 } : null
+                        ]}
                     />
                 </View>      
             </View>
