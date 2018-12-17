@@ -84,7 +84,13 @@ https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers#t
 `$ npm install react-native-gesture-handler
 `
 
-`$ react-native link
+`$ react-native link react-native-gesture-handler
+`
+
+`$ npm install react-native-maps --save
+`
+
+` $ react-native link react-native-maps
 `
 
 
@@ -94,8 +100,7 @@ In case of the following error:
 
 _react-native-cli: command not found_
 
-` $ npm config set prefix '~/.npm-global' && export PATH=~/.npm-global/bin:$PATH && source ~/.profile
-` 
+` $ npm config set prefix '~/.npm-global' && export PATH=~/.npm-global/bin:$PATH && source ~/.profile` 
 
 
 ## Init project
