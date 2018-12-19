@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, FlatList, TouchableOpacity, Image } from 'react-native'
 import Trip from './Trip'
-import IsIphoneX from '../../utils/IsIphoneX'
+import isIphoneX from '../../utils/IsIphoneX'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 class TripsScreen extends Component {
@@ -40,6 +40,17 @@ class TripsScreen extends Component {
                             longitudeDelta: 0.0421
                         }}
                     />
+                    <TouchableOpacity 
+                        onPress={
+                            () => this.props.navigation.navigate('AddTrip')
+                        }
+                        style={{
+                            position: 'absolute',
+                            bottom: 0,
+                            right: 20
+                        }}>
+                        <Image source={require('../../../assets/add.png')} />
+                    </TouchableOpacity>
                 </View>
                 <View style={{
                     backgroundColor: 'white'
